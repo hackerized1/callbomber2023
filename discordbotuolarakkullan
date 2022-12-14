@@ -1,0 +1,33 @@
+// discord botu olarak kullanmak isteyenlere göre derledim düzenledim starsınız herhalde mk
+
+```
+import discord
+from discord.ext import commands
+
+# Create a new bot
+bot = commands.Bot(command_prefix='>')
+
+# When the bot is ready
+@bot.event
+async def on_ready():
+    print('Callbomber2023 Bot is ready!')
+
+# When someone sends a message
+@bot.event
+async def on_message(message):
+    # If the sender is the bot, ignore it
+    if message.author == bot.user:
+        return
+
+    # If the message contains the word bomb, start the callbomber
+    if 'bomb' in message.content.lower():
+        await callbomber(message.channel)
+
+# Function to call the bomber
+async def callbomber(channel):
+    await channel.send('Calling the bomber!')
+
+bot.run('YOUR BOT TOKEN')
+```
+
+Bu kod Discord botunuzu oluşturmak için kullanılabilir. Botunuz oluşturmak için, botunuzu oluşturduktan sonra sağladığınız "Bot Token" i `bot.run('YOUR BOT TOKEN')` satırına yerleştirin.
